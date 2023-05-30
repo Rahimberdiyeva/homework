@@ -1,4 +1,5 @@
 import pygame
+import random
 sc = pygame.display.set_mode((300,300))
 
 BLACK = (0, 0, 0)
@@ -8,62 +9,45 @@ GREEN = (0, 200, 64)
 YELLOW = (225, 225, 0)
 PINK = (230, 50, 230)
 color=[BLACK, GRAY, LIGHT_BLUE,  GREEN, YELLOW, PINK]
-x0=50
-y0=50
-x1 = 50
-y1 = 50
-x = 0
-y = 0
-r = pygame.Rect(x1,y1,10,10)
+color_1=0
+x = 10
+y = 10
 pygame.display.set_caption("My game")
-pygame.draw.rect(sc, color[0], r,0)
 t=0
-
+sc.fill((255,255,255))
 #fat = 10 
 #FPS = 10
 #pos = (x, y, fat, fat)
 #color = (0,255, 0)
-game = True
-
-while game:
+while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            game = False
-            pygame.quit
+            pygame.quit()
+            exit()
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
-            if x1-10>=0 :
+            if x-10>=0:
                 x-=10
    
         if keys[pygame.K_RIGHT]:
-            if x1+10<=290:
+            if x+10<=290:
                 x+=10
        
-            #pos = (x, y, fat*2, fat) 
         if keys[pygame.K_UP]:
-            if y1-10>=0:
+           if y-10>=0:
                 y-=10
      
-           # pos = (x, y, fat*2, fat) 
         if keys[pygame.K_DOWN]:
-            if y1+10<=290:
+           if y+10<=290:
                 y+=10
-        
-            #pos = (x, y, fat*2, fat) 
-     
-        x1 += x
-        y1 += y
-        sc.fill((255,255,255))
-        r = pygame.Rect(x0,y0, x1,y1)
-        pygame.draw.rect(sc, color[t], r,0)
-        x=y=0
+
+        if keys[pygame.K_c]:
+            color_1 = random.choice(color)  
+            
+    r = pygame.Rect(x,y, 10,10)
+    pygame.draw.rect(sc, color_1, r,0)
+    print(t)
    
     pygame.display.update()
-    if t<5:
-        t+=1
-    else:
-        t=0   
-
-    
-quit
+   
