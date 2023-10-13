@@ -67,6 +67,13 @@ def task_6(n):
             s_1 += b
     return 'сумма четных чисел =' , s, 'сумма нечетных чисел =', s_1
 # 7
+def print_task_7(n):
+    for i in range (1,n+1):
+        print('делители числа',i,':',end= ' ')
+        for j in range(1,i+1):
+            if i % j ==0:
+                print(j, end=' ')
+        print()
 # 8
 def task_8(n,m):
     l = False
@@ -177,6 +184,12 @@ while( True):
              n = int (input('Введите n:'))
           
              print(task_6(n))
+        
+        case 'task_7':
+              n = int(input())
+
+              print_task_7(n)
+             
         case 'task_8':
              n , m = map(int(input().slpit()))
              print(task_8(n,m))
