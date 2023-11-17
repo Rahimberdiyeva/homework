@@ -1,23 +1,26 @@
 class My_list(list):
-  pass
+  
+  def __str__(a):
 
-l1 = My_list((1, 2, 3))
-l2 = My_list((3, 4, 5))
+    с = super().__str__()  
+    return f"My_list: {с}" 
 
-def __sub__(a, b):
-  return My_list(map(lambda x, y: x - y, a, b))
+  def __sub__(a, b):
 
-def __truediv__(a, num):
-  try:
-    return My_list(map(lambda x: x / num, a))
-  except ZeroDivisionError:
-    print("Ошибка деления на ноль")
-    return None
+    return My_list(map(lambda x, y: x - y, a, b))
 
-l3 = __sub__(l2, l1)
-l4 = __sub__(l1, l2)
-res = __truediv__(l1, 5)
+  def __truediv__(a, num):
+    try:
+       isinstance(num, int)
+       return My_list(map(lambda x: x / num, a))
+    
+    except:
+      return "Ошибка деления на ноль"
 
-print(res)
+l1 = My_list([1, 2, 3])
+l2 = My_list([3, 4, 5])
+l3 = l2 - l1
+l4 = l1 - l2
+print(l1 / 5)
 print(l3)
 print(l4)
