@@ -14,7 +14,7 @@ class Quadrilateral:
         self.p2 = p2
         self.p3 = p3
         self.p4 = p4
-
+# формула Гаусса для многоугольников
     def area(self):
         return abs(0.5 * (self.p1[0] * (self.p2[1] - self.p4[1]) + self.p2[0] * (self.p3[1] - self.p1[1]) + self.p3[0] * (self.p4[1] - self.p2[1]) + self.p4[0] * (self.p1[1] - self.p3[1])))
     # меньше
